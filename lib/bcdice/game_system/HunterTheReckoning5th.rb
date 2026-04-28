@@ -52,6 +52,7 @@ module BCDice
 
         dice_pool = m[DICE_POOL_INDEX].to_i
         if dice_pool <= 0
+          # ダイスプールが0以下のとき、最低保証ダイスプールであるダイスプール1にする
           dice_pool = 1
         end
         dice_text, success_dice, ten_dice, = make_dice_roll(dice_pool)
