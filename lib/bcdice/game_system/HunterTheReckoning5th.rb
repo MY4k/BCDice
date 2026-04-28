@@ -45,12 +45,15 @@ module BCDice
       register_prefix('\d*HRF')
 
       def eval_game_system_specific_command(command)
-        m = /\A(\d+)?(HRF)(\d+)(\+(\d+))?$/.match(command)
+        m = /\A(\d+)?(HRF)(-?\d+)(\+(\d+))?$/.match(command)
         unless m
           return ''
         end
 
         dice_pool = m[DICE_POOL_INDEX].to_i
+        if dice_pool <= 0
+          dice_pool = 1
+        end
         dice_text, success_dice, ten_dice, = make_dice_roll(dice_pool)
         result_text = "(#{dice_pool}D10"
 
