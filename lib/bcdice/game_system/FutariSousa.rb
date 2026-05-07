@@ -84,13 +84,13 @@ module BCDice
       register_prefix('(\d+)?DT(?:6)?', '(\d+)?AS(?:10)?')
 
       def eval_game_system_specific_command(command)
-        if (m = /^(\d+)?DT(?:6)?(?:>=(\d+))?(?:\[([0-9,]+)\])?$/i.match(command))
+        if (m = /^(\d+)?DT(?:6)?(?:>=(\d+))?(?:\[(\d+(?:,\d+)*)\])?$/i.match(command))
           count = m[1]&.to_i || 2
           target = m[2]&.to_i
           specials = m[3] ? m[3].split(',').map(&:to_i) : []
           return roll_dt(command, count, target, specials)
 
-        elsif (m = /^(\d+)?AS(?:10)?(?:>=(\d+))?(?:\[([0-9,]+)\])?$/i.match(command))
+        elsif (m = /^(\d+)?AS(?:10)?(?:>=(\d+))?(?:\[(\d+(?:,\d+)*)\])?$/i.match(command))
           count = m[1]&.to_i || 2
           target = m[2]&.to_i
           specials = m[3] ? m[3].split(',').map(&:to_i) : []

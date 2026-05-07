@@ -563,6 +563,17 @@ rands = [
 
 [[ test ]]
 game_system = "FutariSousa"
+input = "DT[5,7,9]"
+output = "DT[5,7,9](9,1) ＞ スペシャル（助手の余裕を1点獲得）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 9 },
+  { sides = 10, value = 1 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
 input = "3DT6>=5[4,5]"
 output = "3DT6>=5[4,5](5,3,1) ＞ スペシャル（助手の余裕を1点獲得）"
 success = true
@@ -602,6 +613,18 @@ success = true
 critical = true
 rands = [
   { sides = 10, value = 9 },
+  { sides = 10, value = 4 },
+  { sides = 10, value = 2 },
+]
+
+[[ test ]]
+game_system = "FutariSousa"
+input = "3AS10>=5[7,9,10]"
+output = "3AS10>=5[7,9,10](10,4,2) ＞ スペシャル（余裕2点と、探偵から助手への感情を獲得）"
+success = true
+critical = true
+rands = [
+  { sides = 10, value = 10 },
   { sides = 10, value = 4 },
   { sides = 10, value = 2 },
 ]
